@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – De Glansbus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <img src="images/logowit.png" alt="De Glansbus" class="logo-img">
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="hoofd-nav">
+    <a href="index.html">Home</a>
+    <a href="diensten.html">Diensten</a>
+    <a href="contact.html" class="actief">Contact</a>
+    <a href="tel:+32494418103" class="tel-knop">📞 0494 41 81 03</a>
+  </nav>
+</header>
+
+<div class="contact-hero">
+  <div class="container">
+    <h1 class="sectie-titel">Neem contact op</h1>
+    <p class="sectie-sub">Plan een vrijblijvende afspraak op jouw locatie.</p>
+
+    <div class="contact-grid">
+
+      <!-- Foto links -->
+      <div class="contact-foto">
+        <img src="images/IMG_4987.jpeg" alt="De Glansbus resultaat">
+      </div>
+
+      <!-- Formulier rechts -->
+      <div class="contact-formulier">
+        <h2>Stuur ons<br>een bericht</h2>
+        <p>Vul het formulier in en we nemen zo snel mogelijk contact met je op.</p>
+
+        <form id="contact-form">
+          <!-- Honeypot: verborgen voor mensen, ingevuld door bots -->
+          <input type="text" name="_honing" style="display:none;" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_start" id="form-start">
+
+          <label class="veld-label" for="naam">Naam</label>
+          <input class="veld-input" type="text" id="naam" name="naam" placeholder="Jouw naam" required>
+
+          <label class="veld-label" for="email">E-mailadres</label>
+          <input class="veld-input" type="email" id="email" name="email" placeholder="jouw@email.be" required>
+
+          <label class="veld-label" for="telefoon">Telefoonnummer</label>
+          <input class="veld-input" type="tel" id="telefoon" name="telefoon" placeholder="+32 4xx xx xx xx">
+
+          <label class="veld-label" for="dienst">Gewenste dienst</label>
+          <select class="veld-select" id="dienst" name="dienst">
+            <option value="">Kies een dienst...</option>
+            <option value="exterior">Exterior Detail – €69</option>
+            <option value="prowash">Glansbus Pro Wash – €99</option>
+            <option value="fulldetail">Glansbus Full Detail – Vanaf €129</option>
+            <option value="andere">Andere / Vraag</option>
+          </select>
+
+          <label class="veld-label" for="bericht">Bericht</label>
+          <textarea class="veld-textarea" id="bericht" name="bericht" placeholder="Vertel ons meer over je wagen of stel een vraag..."></textarea>
+
+          <div id="form-melding" style="display:none; padding:12px 16px; border-radius:8px; margin-bottom:12px; font-size:0.9rem;"></div>
+
+          <button type="submit" class="knop-blauw" id="form-btn">Verstuur bericht</button>
+        </form>
+
+        <div class="contact-info">
+          <h3>Of bereik ons rechtstreeks</h3>
+          <a href="tel:+32494418103">📞 0494 41 81 03</a>
+          <a href="mailto:info@deglansbus.be">✉️ info@deglansbus.be</a>
+          <a href="https://www.instagram.com/deglansbus" target="_blank" rel="noopener">📷 @deglansbus</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-merk">
+      <a href="index.html" class="logo" style="margin-bottom:16px; display:inline-flex;">
+        <img src="images/logowit.png" alt="De Glansbus" style="height:40px; width:auto; filter:brightness(0.7);">
+      </a>
+      <p class="footer-beschrijving">Mobiele car detailing op locatie. Kwaliteit, precisie en respect voor jouw wagen, altijd ter plaatse.</p>
+    </div>
+    <div>
+      <span class="footer-koptitel">Navigatie</span>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-koptitel">Contact</span>
+      <div class="footer-contact-item">📞 <a href="tel:+32494418103">0494 41 81 03</a></div>
+      <div class="footer-contact-item">✉️ <a href="mailto:info@deglansbus.be">info@deglansbus.be</a></div>
+      <div class="footer-contact-item">📷 <a href="https://www.instagram.com/deglansbus" target="_blank" rel="noopener">@deglansbus</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 De Glansbus. Alle rechten voorbehouden.</span>
+    <span>Mobiele Car Detailing · België</span>
+  </div>
+</footer>
+
+<div class="credit-bar">
+  <img src="images/logowit.png" alt="" class="credit-bus">
+  <span class="credit-bar-tekst">website by <a href="https://thibotreve.be" target="_blank" rel="noopener">thibotreve.be</a></span>
+</div>
+
+<script>
+const API_URL = '';
+
+document.getElementById('form-start').value = Date.now();
+
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('form-btn');
+  const melding = document.getElementById('form-melding');
+  btn.disabled = true;
+  btn.textContent = 'Bezig...';
+  melding.style.display = 'none';
+
+  const data = Object.fromEntries(new FormData(this));
+
+  try {
+    const res = await fetch(`${API_URL}/api/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+
+    if (json.success) {
+      melding.style.background = '#ecfdf5';
+      melding.style.color = '#065f46';
+      melding.style.border = '1px solid #a7f3d0';
+      melding.textContent = json.message || 'Bedankt! We nemen zo snel mogelijk contact op.';
+      melding.style.display = 'block';
+      this.reset();
+      document.getElementById('form-start').value = Date.now();
+    } else {
+      throw new Error(json.error || 'Er ging iets mis.');
+    }
+  } catch (err) {
+    melding.style.background = '#fef2f2';
+    melding.style.color = '#991b1b';
+    melding.style.border = '1px solid #fecaca';
+    melding.textContent = err.message || 'Er ging iets mis. Probeer opnieuw.';
+    melding.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Verstuur bericht';
+  }
+});
+
+function toggleMenu() {
+  document.getElementById('hoofd-nav').classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(Remove-Item -Recurse -Force \"c:\\\\Users\\\\ThiboTreve\\\\Downloads\\\\Site\\\\backend\\\\node_modules\" -ErrorAction SilentlyContinue)",
+      "Bash(Set-Location \"c:\\\\Users\\\\ThiboTreve\\\\Downloads\\\\Site\\\\backend\")",
+      "PowerShell(npm install --prefix \"c:\\\\Users\\\\ThiboTreve\\\\Downloads\\\\Site\\\\backend\" 2>&1)",
+      "PowerShell(Start-Process -FilePath \"node\" -ArgumentList \"c:\\\\Users\\\\ThiboTreve\\\\Downloads\\\\Site\\\\backend\\\\server.js\" -WorkingDirectory \"c:\\\\Users\\\\ThiboTreve\\\\Downloads\\\\Site\\\\backend\" -PassThru | Select-Object Id; Start-Sleep -Seconds 2; \\(Invoke-WebRequest -Uri \"http://localhost:3000/admin/login\" -UseBasicParsing\\).StatusCode)"
+    ]
+  }
+}
