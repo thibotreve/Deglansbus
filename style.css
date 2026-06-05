@@ -727,115 +727,69 @@ section { padding: 96px 24px; }
 
 /* ── CONTACT PAGINA ── */
 .contact-hero {
-  padding: 140px 24px 60px;
+  padding: 140px 24px 96px;
   background: #fff;
 }
 
-.contact-grid {
+.contact-kaarten {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 64px;
-  align-items: start;
-  margin-top: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.contact-foto {
-  width: 100%;
-  aspect-ratio: 4/5;
-  background: var(--lichtgrijs);
-  border-radius: 16px;
+.contact-kaart {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.contact-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  text-align: center;
+  padding: 40px 24px;
+  border: 1.5px solid var(--rand);
   border-radius: 16px;
-}
-
-.contact-formulier h2 {
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: var(--antraciet);
-  margin-bottom: 12px;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
-}
-
-.contact-formulier > p {
-  color: var(--tekst-licht);
-  margin-bottom: 32px;
-}
-
-.veld-label {
-  display: block;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--antraciet);
-  margin-bottom: 6px;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-
-.veld-input, .veld-textarea, .veld-select {
-  width: 100%;
-  border: 1.5px solid #ddd;
-  border-radius: 8px;
-  padding: 12px 14px;
-  font-size: 0.95rem;
-  color: var(--tekst);
-  background: #fafafa;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  margin-bottom: 20px;
-  font-family: inherit;
-}
-
-.veld-input:focus, .veld-textarea:focus, .veld-select:focus {
-  border-color: var(--antraciet);
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
-  background: #fff;
-}
-
-.veld-textarea {
-  resize: vertical;
-  min-height: 110px;
-}
-
-.veld-select {
-  -webkit-appearance: none;
-  cursor: pointer;
-}
-
-.contact-info {
-  margin-top: 40px;
-  padding-top: 28px;
-  border-top: 1px solid var(--rand);
-}
-
-.contact-info h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--antraciet);
-  margin-bottom: 16px;
-}
-
-.contact-info a {
-  color: #555;
   text-decoration: none;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-  transition: color 0.2s;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  gap: 6px;
 }
 
-.contact-info a:hover { color: var(--antraciet); }
+.contact-kaart:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  border-color: var(--antraciet);
+}
+
+.contact-kaart-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.contact-kaart-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--tekst-licht);
+}
+
+.contact-kaart-waarde {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--antraciet);
+}
+
+.contact-kaart-sub {
+  font-size: 0.75rem;
+  color: var(--tekst-licht);
+  margin-top: 2px;
+}
+
+.contact-kaart-adres {
+  cursor: default;
+}
 
 /* ── FOOTER ── */
 footer {
@@ -933,51 +887,72 @@ footer {
 /* ── CREDIT BAR ── */
 .credit-bar {
   background: #0a0b0d;
-  padding: 10px 24px;
+  padding: 14px 24px;
   text-align: center;
   position: relative;
   overflow: hidden;
   cursor: default;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.5s;
 }
 
+.credit-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.credit-bar:hover { background: #111318; }
+.credit-bar:hover::before { left: 160%; }
+
 .credit-bar-tekst {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.28);
   position: relative;
   z-index: 2;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.4s;
+}
+
+.credit-bar:hover .credit-bar-tekst { color: rgba(255,255,255,0.5); }
+
+.credit-bar-tekst::before {
+  content: '⚡';
+  font-size: 0.7rem;
+  opacity: 0.5;
 }
 
 .credit-bar-tekst a {
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.55);
   text-decoration: none;
+  font-weight: 600;
+  position: relative;
   transition: color 0.2s;
 }
 
-.credit-bar-tekst a:hover { color: rgba(255,255,255,0.7); }
-
-.credit-bus {
+.credit-bar-tekst a::after {
+  content: '';
   position: absolute;
-  top: 50%;
+  bottom: -1px;
   left: 0;
-  height: 22px;
-  width: auto;
-  opacity: 0;
-  transform: translate(-80px, -50%);
-  pointer-events: none;
-  filter: brightness(0.5);
+  width: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.5);
+  transition: width 0.25s ease;
 }
 
-.credit-bar:hover .credit-bus {
-  animation: busRijden 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
+.credit-bar-tekst a:hover { color: #fff; }
+.credit-bar-tekst a:hover::after { width: 100%; }
 
-@keyframes busRijden {
-  0%   { transform: translate(-80px, -50%); opacity: 0; }
-  10%  { opacity: 0.5; }
-  90%  { opacity: 0.5; }
-  100% { transform: translate(calc(100vw + 80px), -50%); opacity: 0; }
-}
 
 /* ── HAMBURGER MOBIEL ── */
 .hamburger {
@@ -1032,7 +1007,7 @@ footer {
   .reviews-grid     { grid-template-columns: 1fr; }
   .voordelen-grid   { grid-template-columns: 1fr; }
   .waarom-grid      { grid-template-columns: 1fr; }
-  .contact-grid     { grid-template-columns: 1fr; }
+  .contact-kaarten  { grid-template-columns: 1fr; max-width: 400px; }
   .service-rij      { grid-template-columns: 1fr; }
   .service-rij.omgekeerd { direction: ltr; }
   .footer-grid      { grid-template-columns: 1fr; gap: 32px; }
