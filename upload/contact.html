@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – De Glansbus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <img src="images/logowit.png" alt="De Glansbus" class="logo-img">
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="hoofd-nav">
+    <a href="index.html">Home</a>
+    <a href="diensten.html">Diensten</a>
+    <a href="contact.html" class="actief">Contact</a>
+    <a href="tel:+32494418103" class="tel-knop">📞 0494 41 81 03</a>
+  </nav>
+</header>
+
+<div class="contact-hero">
+  <div class="container">
+    <h1 class="sectie-titel">Neem contact op</h1>
+    <p class="sectie-sub">Plan een vrijblijvende afspraak op jouw locatie.</p>
+
+    <div class="contact-grid">
+
+      <!-- Foto links -->
+      <div class="contact-foto">
+        <img src="images/IMG_4987.jpeg" alt="De Glansbus resultaat">
+      </div>
+
+      <!-- Contactgegevens rechts -->
+      <div class="contact-formulier">
+        <h2>Bereik ons<br>rechtstreeks</h2>
+        <p>Neem contact op via telefoon, e-mail of Instagram. We plannen samen een afspraak op jouw locatie.</p>
+
+        <div class="contact-info">
+          <a href="tel:+32494418103">📞 0494 41 81 03</a>
+          <a href="mailto:info@deglansbus.be">✉️ info@deglansbus.be</a>
+          <a href="https://www.instagram.com/deglansbus" target="_blank" rel="noopener">📷 @deglansbus</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-merk">
+      <a href="index.html" class="logo" style="margin-bottom:16px; display:inline-flex;">
+        <img src="images/logowit.png" alt="De Glansbus" style="height:40px; width:auto; filter:brightness(0.7);">
+      </a>
+      <p class="footer-beschrijving">Mobiele car detailing op locatie. Kwaliteit, precisie en respect voor jouw wagen, altijd ter plaatse.</p>
+    </div>
+    <div>
+      <span class="footer-koptitel">Navigatie</span>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-koptitel">Contact</span>
+      <div class="footer-contact-item">📞 <a href="tel:+32494418103">0494 41 81 03</a></div>
+      <div class="footer-contact-item">✉️ <a href="mailto:info@deglansbus.be">info@deglansbus.be</a></div>
+      <div class="footer-contact-item">📷 <a href="https://www.instagram.com/deglansbus" target="_blank" rel="noopener">@deglansbus</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 De Glansbus. Alle rechten voorbehouden.</span>
+    <span>Mobiele Car Detailing · België</span>
+  </div>
+</footer>
+
+<div class="credit-bar">
+  <img src="images/logowit.png" alt="" class="credit-bus">
+  <span class="credit-bar-tekst">website by <a href="https://thibotreve.be" target="_blank" rel="noopener">thibotreve.be</a></span>
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById('hoofd-nav').classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+</body>
+</html>
